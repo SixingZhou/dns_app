@@ -1,0 +1,21 @@
+version: '3'
+services:
+  us:
+    build: ./us
+    ports:
+      - "8080:8080"
+    depends_on:
+      - fs
+      - as
+
+  fs:
+    build: ./fs
+    ports:
+      - "9090:9090"
+    depends_on:
+      - as
+
+  as:
+    build: ./as
+    ports:
+      - "30001:30001"
